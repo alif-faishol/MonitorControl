@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         app = self
-		mediaKeyTap = MediaKeyTap.init(delegate: self, forKeys: [.brightnessUp, .brightnessDown, .mute, .volumeUp, .volumeDown], observeBuiltIn: false)
+		mediaKeyTap = MediaKeyTap.init(delegate: self, forKeys: [.brightnessUp, .brightnessDown], observeBuiltIn: false)
 
 		statusItem.image = NSImage.init(named: NSImage.Name(rawValue: "status"))
         statusItem.menu = statusMenu
@@ -149,27 +149,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
 	func handle(mediaKey: MediaKey, event: KeyEvent?) {
 
-		var command = BRIGHTNESS
+		let command = BRIGHTNESS
 		var rel = 0
-		var slider = self.defaultBrightnessSlider
+		let slider = self.defaultBrightnessSlider
 
 		switch mediaKey {
 		case .brightnessUp:
 			rel = +self.step
 		case .brightnessDown:
 			rel = -self.step
-		case .mute:
-			rel = -100
-			command = AUDIO_SPEAKER_VOLUME
-			slider = self.defaultVolumeSlider
-		case .volumeUp:
-			rel = +self.step
-			command = AUDIO_SPEAKER_VOLUME
-			slider = self.defaultVolumeSlider
-		case .volumeDown:
-			rel = -self.step
-			command = AUDIO_SPEAKER_VOLUME
-			slider = self.defaultVolumeSlider
 		default:
 			return
 		}
@@ -187,13 +175,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
 		// OSD
 		if let manager = OSDManager.sharedManager() as? OSDManager {
-			var osdImage: Int64 = 1 // Brightness Image
-			if command == AUDIO_SPEAKER_VOLUME {
-				osdImage = 3 // Speaker image
-				if value == 0 {
-					osdImage = 4 // Mute speaker
-				}
-			}
+			let osdImage: Int64 = 1 // Brightness Image
 			manager.showImage(osdImage,
 							  onDisplayID: self.defaultDisplay.identifier,
 							  priority: 0x1f4,
