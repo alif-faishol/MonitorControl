@@ -1,6 +1,6 @@
 # Podfile
 
-plateform :osx, '10.11'
+platform :osx, '10.11'
 
 target 'MonitorControl' do
   use_frameworks!

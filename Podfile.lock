@@ -1,12 +1,21 @@
 PODS:
-  - MediaKeyTap (1.0.0)
+  - MediaKeyTap (2.1.0)
 
 DEPENDENCIES:
-  - MediaKeyTap
+  - MediaKeyTap (from `https://github.com/the0neyouseek/MediaKeyTap.git`)
+
+EXTERNAL SOURCES:
+  MediaKeyTap:
+    :git: https://github.com/the0neyouseek/MediaKeyTap.git
+
+CHECKOUT OPTIONS:
+  MediaKeyTap:
+    :commit: 61a64c17d598de7126f24befde6bdbd5dc7fa121
+    :git: https://github.com/the0neyouseek/MediaKeyTap.git
 
 SPEC CHECKSUMS:
-  MediaKeyTap: 92764246d2ce8bf4446c2457e8b180e0b88926a1
+  MediaKeyTap: b652877e9ae2d52ca4f5310fa5152945ad3f0798
 
-PODFILE CHECKSUM: 11c0e07cdb4651a81ff3269f5d50664df18716d4
+PODFILE CHECKSUM: 74d434862e72d9bd44cfd5d9222a332046ff5815
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

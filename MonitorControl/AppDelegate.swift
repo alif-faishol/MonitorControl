@@ -147,7 +147,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeyTapDelegate {
 
 	// MARK: - Media Key Tap delegate
 
-	func handle(mediaKey: MediaKey, event: KeyEvent) {
+	func handle(mediaKey: MediaKey, event: KeyEvent?) {
 
 		var command = BRIGHTNESS
 		var rel = 0
