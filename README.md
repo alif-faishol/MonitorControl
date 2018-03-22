@@ -1,5 +1,5 @@
 Please try to use the newer version [here](https://github.com/the0neyouseek/MonitorControl).
-This branch was created because in v1.2.1, the key shortcuts isn't working in my device, the last working version is v1.1.
+This branch was created because in v1.2.1, the key shortcuts aren't working in my device, the last working version is v1.1.
 
 But I don't need to control my monitor's audio volume as I don't use it, so I remove the functionality. That's it.
 
